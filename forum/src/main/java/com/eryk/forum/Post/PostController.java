@@ -1,5 +1,7 @@
 package com.eryk.forum.Post;
 
+import com.eryk.forum.Comment.Comment;
+import com.eryk.forum.Comment.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +12,11 @@ import java.util.List;
 @RequestMapping("/posts")
 public class PostController {
     private final PostService postService;
+    private final CommentService commentService;
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, CommentService commentService) {
         this.postService = postService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/all")
@@ -33,10 +37,18 @@ public class PostController {
         return new ResponseEntity<>(newPost, HttpStatus.CREATED);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ResponseEntity<Post> updatePost(@RequestBody Post post){
         Post updatedPost = postService.addPost(post);
         return new ResponseEntity<>(updatedPost, HttpStatus.OK);
+    }
+
+    @PutMapping("/{postId}/comments/{commentId}")
+    public ResponseEntity<Post> addCommentToPost(@PathVariable Long postId, @PathVariable Long commentId){
+        Post post = postService.findPostById(postId);
+        Comment comment = commentService.findCommentById(commentId);
+        postService.assignComment(post, comment);
+        return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

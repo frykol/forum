@@ -1,5 +1,6 @@
 package com.eryk.forum.Post;
 
+import com.eryk.forum.Comment.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class PostService {
     private final PostRepo postRepo;
+    private Comment comment;
 
     @Autowired
     public PostService(PostRepo postRepo) {
@@ -28,6 +30,11 @@ public class PostService {
     }
 
     public Post updatePost(Post post){
+        return postRepo.save(post);
+    }
+
+    public Post assignComment(Post post, Comment comment){
+        post.addComment(comment);
         return postRepo.save(post);
     }
 
