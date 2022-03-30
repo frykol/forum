@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -21,7 +22,6 @@ public class Post implements Serializable {
     private Long id;
     private String title;
     private String description;
-
 
     @OneToMany(mappedBy = "post")
     private Set<Comment> postComments = new HashSet<>();

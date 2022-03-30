@@ -17,6 +17,7 @@ public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
     private String text;
 
     @JsonIgnore
@@ -24,8 +25,9 @@ public class Comment implements Serializable {
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 
-    public Comment(String text){
+    public Comment(String text, String username){
         this.text = text;
+        this.username = username;
     }
 
     public void addPost(Post post) {

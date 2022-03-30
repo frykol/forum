@@ -1,0 +1,4 @@
+<h1>Es</h1>
+<div *ngFor="let p of posts; let i = index">
+  <p *ngFor="let coms of p.postComments">{{coms.text}}</p>
+</div>
