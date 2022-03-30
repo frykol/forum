@@ -1,4 +1,10 @@
-<h1>Es</h1>
-<div *ngFor="let p of posts; let i = index">
-  <p *ngFor="let coms of p.postComments">{{coms.text}}</p>
+<app-navbar></app-navbar>
+<div id="content">
+  <div id="outp">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="side">
+    <app-sidebar></app-sidebar>
+  </div>
 </div>
+

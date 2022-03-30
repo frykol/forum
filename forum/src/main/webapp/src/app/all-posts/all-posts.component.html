@@ -1,0 +1,6 @@
+<div id="content">
+    <div id="post" *ngFor="let p of posts">
+        <h1 routerLink="/post/{{p.id}}">{{p.title}}</h1>
+        <p>Komentarze: {{countComments(p)}}</p>
+    </div>
+</div>

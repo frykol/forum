@@ -1,0 +1,21 @@
+#content{
+    background-color: rgba(54, 160, 54, 0.5);
+    padding: 20px;
+}
+
+#post{
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+h1{
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    color: rgb(54, 160, 54);
+    cursor: pointer;
+}
+p{
+    margin-top: 5px;
+}

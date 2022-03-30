@@ -8,21 +8,8 @@ import { PostService } from './post.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  public posts: any = {};
-
-  constructor(private postService: PostService) {}
-
-  ngOnInit(){
-    this.getAllPosts();
-  }
-
-  public getAllPosts(): void{
-    this.postService.getAllPosts().subscribe(
-      (response: Post[]) => {this.posts = response},
-      (error: HttpErrorResponse) => {alert(error)}
-    );
-  }
+export class AppComponent{
+  
 
   title = 'webapp';
 }
