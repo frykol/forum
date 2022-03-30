@@ -1,5 +1,6 @@
 package com.eryk.forum.Comment;
 
+import com.eryk.forum.Post.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,10 @@ public class CommentService {
     @Transactional
     public void deleteComment(Long id){
         commentRepo.deleteCommentById(id);
+    }
+
+    public Comment addPost(Post post, Comment comment) {
+        comment.addPost(post);
+        return commentRepo.save(comment);
     }
 }

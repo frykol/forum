@@ -31,7 +31,4 @@ public class Post implements Serializable {
         this.description = description;
     }
 
-    public void addComment(Comment comment) {
-        postComments.add(comment);
-    }
 }

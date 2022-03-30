@@ -33,10 +33,6 @@ public class PostService {
         return postRepo.save(post);
     }
 
-    public Post assignComment(Post post, Comment comment){
-        post.addComment(comment);
-        return postRepo.save(post);
-    }
 
     @Transactional
     public void deletePost(Long id){

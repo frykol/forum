@@ -27,4 +27,8 @@ public class Comment implements Serializable {
     public Comment(String text){
         this.text = text;
     }
+
+    public void addPost(Post post) {
+        this.post = post;
+    }
 }
