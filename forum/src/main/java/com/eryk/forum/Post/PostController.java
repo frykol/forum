@@ -43,8 +43,8 @@ public class PostController {
         return new ResponseEntity<>(updatedPost, HttpStatus.OK);
     }
 
-    @PutMapping("/{commentId}/posts/{postId}")
-    public ResponseEntity<Post> addCommentToPost(@PathVariable Long commentId, @PathVariable Long postId){
+    @PutMapping("/{postId}/comments/{commentId}")
+    public ResponseEntity<Post> addCommentToPost(@PathVariable Long postId, @PathVariable Long commentId){
         Post post = postService.findPostById(postId);
         Comment comment = commentService.findCommentById(commentId);
         commentService.addPost(post, comment);
