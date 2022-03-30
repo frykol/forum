@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
 import { OnePostComponent } from './one-post/one-post.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { OnePostComponent } from './one-post/one-post.component';
     NavbarComponent,
     SidebarComponent,
     AllPostsComponent,
-    OnePostComponent
+    OnePostComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,

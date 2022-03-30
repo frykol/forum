@@ -4,5 +4,13 @@
         <p>{{post.description}}</p>
     </div>
     <button routerLink="/" id="goback">Wróć</button>
+    <h1 *ngIf="post.postComments.length > 0; else noCom">Komentarze:</h1>
+    <div id="comment" *ngFor="let comment of post.postComments">
+        <h2>{{comment.username}}:</h2>
+        <p>{{comment.text}}</p>
+    </div>
 </div>
 
+<ng-template #noCom>
+    <h1>Brak komentarzy</h1>
+</ng-template>
