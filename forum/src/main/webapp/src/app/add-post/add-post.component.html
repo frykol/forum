@@ -1,1 +1,15 @@
-<p>add-post works!</p>
+<div id="content">
+    <h1>Dodaj post</h1>
+    <form #addForm="ngForm" (ngSubmit)="addPost(addForm)">
+        <div id="inner">
+            <p>Tytuł:</p>
+            <input ngModel type="text" name="title" required>
+        </div>
+        <div id="inner">
+            <p>Zawartość:</p>
+            <textarea ngModel name="description" required></textarea>
+        </div>
+        <input type="submit" value="Dodaj Post">
+    </form>
+</div>
+

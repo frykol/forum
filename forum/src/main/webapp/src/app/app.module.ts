@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
 import { OnePostComponent } from './one-post/one-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddPostComponent } from './add-post/add-post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
