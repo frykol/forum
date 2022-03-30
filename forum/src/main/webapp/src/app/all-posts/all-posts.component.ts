@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
@@ -13,7 +14,7 @@ export class AllPostsComponent implements OnInit {
   public posts: any = {};
   public commentsNumber: Number = 0;
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(){
     this.getAllPosts();
@@ -24,6 +25,21 @@ export class AllPostsComponent implements OnInit {
       (response: Post[]) => {this.posts = response},
       (error: HttpErrorResponse) => {alert(error)}
     );
+  }
+
+  public deletePost(id: number){
+    console.log(id);
+    this.postService.deletePost(id).subscribe(
+      (response: void) => {console.log(response), this.reload()},
+      (error:HttpErrorResponse) => {alert(error)}
+   )
+  }
+
+  reload(){
+    let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
   }
 
   public countComments(post: Post){
