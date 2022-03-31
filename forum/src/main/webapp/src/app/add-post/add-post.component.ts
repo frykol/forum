@@ -19,14 +19,10 @@ export class AddPostComponent implements OnInit {
 
   public addPost(form: NgForm){
     this.postService.addPost(form.value).subscribe(
-      (response: Post) => {console.log("added"); this.reload},
+      (response: Post) => {console.log("added"); this.router.navigate(["/"])},
       (error: HttpErrorResponse) => {alert(error);}
     )
   }
 
-  reload(){
-    window.location.reload();
-    this.router.navigate(["/"])
-  }
 
 }
