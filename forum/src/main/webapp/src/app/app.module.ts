@@ -12,6 +12,7 @@ import { OnePostComponent } from './one-post/one-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FormsModule } from '@angular/forms';
 import { CommentService } from './comment.service';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommentService } from './comment.service';
     SidebarComponent,
     AllPostsComponent,
     OnePostComponent,
-    AddPostComponent
+    AddPostComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

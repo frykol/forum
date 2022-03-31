@@ -18,19 +18,30 @@
     justify-content: space-between;
     align-items: center;
 }
+#head div{
+    display: flex;
+    flex-direction: row;
+}
 #head h1{
     font-size: 25px;
 }
 #head p{
     padding: 10px;
-    background-color: red;
+
     border-radius: 10px;
     color: white;
     cursor: pointer;
     transition: 0.2s;
+    margin: 0px 5px;
 }
 #head p:hover{
     opacity: 0.7;
+}
+#del{
+    background-color: red;
+}
+#edit{
+    background-color: blue;
 }
 p{
     margin-top: 10px;

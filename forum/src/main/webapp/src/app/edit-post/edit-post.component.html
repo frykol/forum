@@ -1,0 +1,16 @@
+<div id="content">
+    <h1>Dodaj post</h1>
+    <form #editForm="ngForm">
+        <input type="hidden" name="id" ngModel="{{post?.id}}">
+        
+        <div id="inner">
+            <p>Tytuł:</p>
+            <input ngModel="{{post?.title}}" type="text" name="title" required>
+        </div>
+        <div id="inner">
+            <p>Zawartość:</p>
+            <textarea ngModel="{{post?.description}}" name="description" required></textarea>
+        </div>
+        <input type="submit" value="Edytuj Post" (click)="editPost(editForm.value)">
+    </form>
+</div>

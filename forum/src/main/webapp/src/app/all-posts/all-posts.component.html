@@ -2,7 +2,10 @@
     <div id="post" *ngFor="let p of posts">
         <div id="head">
             <h1 routerLink="/post/{{p.id}}">{{p.title}}</h1>
-            <p (click)="deletePost(p.id)">Usuń</p>
+            <div>
+                <p id="edit" routerLink="/edit-post/{{p.id}}">Edytuj</p>
+                <p (click)="deletePost(p.id)" id="del">Usuń</p>
+            </div>
         </div>
         
         <p>Komentarze: {{countComments(p)}}</p>
