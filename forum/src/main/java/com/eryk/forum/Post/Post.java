@@ -25,7 +25,7 @@ public class Post implements Serializable {
     private String title;
     private String description;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Set<Comment> postComments = new HashSet<>();
 
     public Post(String title, String description){

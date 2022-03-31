@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Post } from './post';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl: string = "http://localhost:8080";
+  private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +30,9 @@ export class PostService {
 
   public deletePost(id: Number): Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/posts/delete/${id}`);
+  }
+
+  public addCommentToPost(postId: number, commentId:number, post: Post){
+    return this.http.put<Post>(`${this.apiUrl}/posts/${postId}/comments/${commentId}`, post);
   }
 }

@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommentService } from '../comment.service';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
@@ -13,8 +15,9 @@ export class OnePostComponent implements OnInit {
 
   public post: any = [];
   public siteId: number = 0;
+  public currentComment: any = {};
 
-  constructor(private router: Router, private route: ActivatedRoute, private postService: PostService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private postService: PostService, private commentService: CommentService) { }
 
   ngOnInit(): void {
     this.siteId = Number(this.route.snapshot.paramMap.get("id"));
@@ -28,4 +31,24 @@ export class OnePostComponent implements OnInit {
     )
   }
 
+  public addComment(form: NgForm){
+    this.commentService.addComment(form.value).subscribe(
+      (respose: Comment) => {console.log("added"); this.currentComment = respose ;this.assignComment(this.siteId, this.currentComment.id)},
+      (error: HttpErrorResponse) => {alert(error + " przy dodawaniu");}
+    )
+  }
+
+  public assignComment(postId:number, commentId:number){
+    this.postService.addCommentToPost(postId, commentId, this.post).subscribe(
+      (response: Post) => {console.log("przypisano"); this.reload()},
+      (error: HttpErrorResponse) => {alert(error + " przy przypisywaniu");}
+    )
+  }
+
+  reload(){
+    let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+  }
 }

@@ -21,7 +21,7 @@ public class Comment implements Serializable {
     private String text;
 
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 

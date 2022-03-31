@@ -11,6 +11,7 @@ import { AllPostsComponent } from './all-posts/all-posts.component';
 import { OnePostComponent } from './one-post/one-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FormsModule } from '@angular/forms';
+import { CommentService } from './comment.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [PostService],
+  providers: [PostService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
