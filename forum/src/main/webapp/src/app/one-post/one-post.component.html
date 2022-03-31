@@ -20,7 +20,10 @@
         </div>
     </form>
     <div id="comment" *ngFor="let comment of post.postComments">
-        <h2>{{comment.username}}:</h2>
+        <div id="comment-top">
+            <h2>{{comment.username}}:</h2>
+            <p id="del" (click)="deleteComment(comment.id)">Usuń</p>
+        </div>
         <p>{{comment.text}}</p>
     </div>
 </div>

@@ -44,6 +44,21 @@
     padding: 10px;
     font-size: 20px;
 }
+#comment-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#del{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#del:hover{
+    background-color: rgb(184, 0, 0);
+}
 
 #add-comment{
     padding: 10px;

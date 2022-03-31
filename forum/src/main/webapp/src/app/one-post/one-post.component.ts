@@ -31,6 +31,13 @@ export class OnePostComponent implements OnInit {
     )
   }
 
+  public deleteComment(id: number){
+    this.commentService.deleteComment(id).subscribe(
+      (response: void) => {console.log("usunięto"); this.reload()},
+      (error: HttpErrorResponse) => {alert(error);}
+    )
+  }
+
   public addComment(form: NgForm){
     this.commentService.addComment(form.value).subscribe(
       (respose: Comment) => {console.log("added"); this.currentComment = respose ;this.assignComment(this.siteId, this.currentComment.id)},
