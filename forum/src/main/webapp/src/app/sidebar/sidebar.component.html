@@ -1,3 +1,7 @@
-<div>
-    <p>sidebar works!</p>
+<div id="content">
+    <h1>Najbardziej aktywne posty</h1>
+    <div *ngFor="let post of bestToShow" >
+        <p id="title" routerLink="/post/{{post.id}}">{{post.title}}</p>
+        <p id="comNum">Komentarze: {{post.postComments.length}}</p>
+    </div>
 </div>

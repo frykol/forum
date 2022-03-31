@@ -36,4 +36,8 @@ export class EditPostComponent implements OnInit {
       (error:HttpErrorResponse) => {alert(error);}
     )
   }
+
+  reload(){
+    window.location.reload();
+  }
 }

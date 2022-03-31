@@ -53,9 +53,6 @@ export class OnePostComponent implements OnInit {
   }
 
   reload(){
-    let currentUrl = this.router.url;
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-      this.router.navigate([currentUrl]);
+    window.location.reload();
   }
 }

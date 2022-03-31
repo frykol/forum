@@ -2,6 +2,7 @@ package com.eryk.forum.Post;
 
 import com.eryk.forum.Comment.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -32,6 +33,7 @@ public class PostService {
     public Post updatePost(Post post){
         return postRepo.save(post);
     }
+
 
 
     @Transactional

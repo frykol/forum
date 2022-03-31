@@ -35,4 +35,5 @@ export class PostService {
   public addCommentToPost(postId: number, commentId:number, post: Post){
     return this.http.put<Post>(`${this.apiUrl}/posts/${postId}/comments/${commentId}`, post);
   }
+
 }

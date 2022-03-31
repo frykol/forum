@@ -30,6 +30,7 @@ public class PostController {
         Post post = postService.findPostById(id);
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
+    
 
     @PostMapping("/add")
     public ResponseEntity<Post> addPost(@RequestBody Post post){

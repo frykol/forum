@@ -1,6 +1,21 @@
-div{
-    background-color: blue;
+#content{
     position: sticky;
     top: 80px;
     right: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    background-color: rgba(54, 160, 54, 0.5);
+}
+#content div{
+    margin: 15px 0;
+}
+#title{
+    font-size: 15px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+#comNum{
+    font-size: 12px;
 }
